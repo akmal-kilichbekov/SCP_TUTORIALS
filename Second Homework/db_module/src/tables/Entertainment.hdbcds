@@ -1,0 +1,27 @@
+namespace HW_SPC_2.db_module.tables;
+
+context Entertainment {
+
+    /*@@layout{"layoutInfo":{"x":137,"y":156.5}}*/
+    entity Cinema {
+        key cinemaID      : Integer not null;
+            cinemaName    : String(20);
+            address       : String(20);
+            numberOfSeats : Integer;
+            pic           : String(20);
+            capitalID     : Integer;
+    };
+   
+       /*@@layout{"layoutInfo":{"x":-877,"y":42.5}}*/
+    entity Parks {
+        key parkName    : String(40) not null;
+            location    : String(40);
+            openingHour : String(20);
+            closingHour : String(20);
+            icon        : String(10);
+            pic         : String(30);
+            info        : String(40);
+            capitalID   : Integer;
+    }; 
+    
+}; 

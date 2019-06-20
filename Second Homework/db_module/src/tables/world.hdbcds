@@ -1,0 +1,36 @@
+namespace HW_SPC_2.db_module.tables;
+
+using HW_SPC_2.db_module.tables::Entertainment.Cinema as Cinema;
+using HW_SPC_2.db_module.tables::Entertainment.Parks as Parks;
+
+context world {
+    /*@@layout{"layoutInfo":{"x":-959.3564453125,"y":-257}}*/
+    entity Continent {
+        key continentID   : Integer not null;
+            continentName : String(40);
+            countryName   : String(40);
+            countryID     : Integer;
+            ToCountry     : association[1] to world.Country on ToCountry.countryID = countryID;
+    }
+
+    /*@@layout{"layoutInfo":{"x":-672,"y":-257.5}}*/
+    entity Country {
+        key countryID     : Integer not null;
+            countryName   : String(40);
+            capitalName   : String(40);
+            regionsNumber : Integer;
+            language      : String(10);
+            capitalID     : Integer;
+            ToCapital     : association[1] to world.Capital on ToCapital.capitalID = capitalID;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-376,"y":-257.5,"external":[{"id":"HW_SPC_2.db_module.tables::world.Parks","sourceName":"ToPark"},{"id":"HW_SCP_2::Entertainment.Cinema","sourceName":"ToCinema","x":-109,"y":42.5}]}}*/
+    entity Capital {
+        key capitalID   : Integer not null;
+            capitalName : String(40);
+            info        : String(100);
+            famousFor   : String(20);
+            ToParks     : association[*] to Parks  on ToParks.capitalID = capitalID;
+            ToCinema    : association[*] to Cinema on ToCinema.capitalID = capitalID;
+    };
+};

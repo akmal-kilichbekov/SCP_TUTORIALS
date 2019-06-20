@@ -1,0 +1,32 @@
+ID: HW_SPC_2
+_schema-version: '2.1'
+description: Second homework
+version: 0.0.1
+
+modules:
+ - name: db_module
+   type: hdb
+   path: db_module
+   requires:
+    - name: hdi_db_module
+
+
+ - name: node_module
+   type: nodejs
+   path: node_module
+   requires:
+   - name: db_module
+   - name: hdi_db_module
+   provides:
+    - name: node_module_api
+      properties:
+         url: ${default-url}
+
+resources:
+ - name: hdi_db_module
+   parameters:
+      config:
+         schema: db_schema
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container

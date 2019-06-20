@@ -1,0 +1,15 @@
+countryID,countryName,capitalName,regionsNumber,language,capitalID
+1,Saudi Arabia,Riyadh,4,arabian,1
+2,Singapore,Singapore,3,arabian,2
+3,South Korea, Seoul,5,korean,3
+4,Sri Lanka,Sri Jayawardenepura Kotte,2,indian,4
+5,Syria,Damascus,7,arabian,5
+6,Iceland,Paris,5,english,6
+7,Ireland,Reykjavik,3,english,7
+8,Italy,Rome,4,italian,8
+9,Georgia,Tbilisi,8,english,9
+10,Germany,Berlin,6,dutch,10
+11,Greece,Athens,4,greece,11
+12,Namibia,Windhoek,6,english,12
+13,Niger,Abuja,5,english,13
+14,Nigeria,Niamey,2,english,14

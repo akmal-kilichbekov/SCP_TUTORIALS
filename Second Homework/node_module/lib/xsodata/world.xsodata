@@ -1,0 +1,37 @@
+service {
+
+    "HW_SPC_2.db_module.tables::world.Continent" as "Continent"
+            navigates("Continent_Country" as "ToCountry")
+            create using "HW_SPC_2.node_module.xsjs:saveCountry.xsjs"
+            update forbidden
+            delete forbidden;
+
+    "HW_SPC_2.db_module.tables::world.Country" as "Country"
+            navigates("Country_Capital" as "ToCapital")
+            create forbidden
+            update forbidden
+            delete forbidden;
+
+    "HW_SPC_2.db_module.tables::world.Capital" as "Capital"
+            navigates("Capital_Parks" as "ToParks", "Capital_Cinema" as "ToCinema")
+            create forbidden
+            update forbidden
+            delete forbidden;
+            
+    "HW_SPC_2.db_module.views::Europe" as "EuropeanCount" key generate local "ID"
+            create forbidden
+            update forbidden
+            delete forbidden;
+ 
+    association "Continent_Country" principal "Continent"("countryID")
+            multiplicity "1" dependent "Country"("countryID") multiplicity "1";
+            
+    association "Country_Capital" principal "Country"("capitalID")
+            multiplicity "1" dependent "Capital"("capitalID") multiplicity "1";    
+    
+    association "Capital_Parks" principal "Capital"("capitalID")
+            multiplicity "1" dependent "Parks"("capitalID") multiplicity "*";          
+    
+    association "Capital_Cinema" principal "Capital"("capitalID")
+            multiplicity "1" dependent "Cinema"("capitalID") multiplicity "*";  
+}

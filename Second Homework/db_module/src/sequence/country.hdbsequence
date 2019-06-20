@@ -1,0 +1,1 @@
+SEQUENCE "HW_SPC_2.db_module.sequence::countryID" START WITH 1000 MAXVALUE 9999

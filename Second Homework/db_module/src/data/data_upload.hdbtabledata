@@ -1,0 +1,51 @@
+{
+	"format_version": 1,
+	"imports": [{
+		"target_table": "HW_SPC_2.db_module.tables::world.Continent",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "HW_SPC_2.db_module.data::Continent.csv",
+			"has_header": true
+		},
+		"import_settings": {
+			"import_columns": [
+				"continentID",
+				"continentName",
+				"countryName",
+				"countryID"
+			]
+		}
+	}, {
+		"target_table": "HW_SPC_2.db_module.tables::world.Country",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "HW_SPC_2.db_module.data::Country.csv",
+			"has_header": true
+		},
+		"import_settings": {
+			"import_columns": [
+				"countryID",
+				"countryName",
+				"capitalName",
+				"regionsNumber",
+				"language",
+				"capitalID"
+			]
+		}
+	}, {
+		"target_table": "HW_SPC_2.db_module.tables::world.Capital",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "HW_SPC_2.db_module.data::Capitals.csv",
+			"has_header": true
+		},
+		"import_settings": {
+			"import_columns": [
+				"capitalID",
+				"capitalName",
+				"info",
+				"famousFor"
+			]
+		}
+	}]
+}
