@@ -1,0 +1,62 @@
+{
+    "VCAP_SERVICES": {
+     "hanatrial": [
+      {
+       "binding_name": null,
+       "credentials": {
+        "driver": "com.sap.db.jdbc.Driver",
+        "hdi_password": "Po3jViJM0Y1iAosHrCmJ5TENY1i2b3tjzihAd0qZM3npMBeVSYnpU8MmwcXQdCwh6kY9D5dwVvwv_Ex0O-I9j7.20RuTVPzIw_Ui2PwYrgkSfzEB1D2EfaJ-XV6HrMHe",
+        "hdi_user": "SBSS_23835029867155065578224336068457044703884772967644846015518009699",
+        "host": "10.253.93.93",
+        "password": "Rd2H7yGXpiSkAey-zPoRYvHGSbt5oLo6beHZkgGMzwkhc2tPO3JKpYjICmCve3N.KlM2ZjZDvVvB6N0iaUdWj-4oduxCwkVhe4kqpgMlFG.zo19UCZ60M-M6uBKbTb8g",
+        "port": "30041",
+        "schema": "AKB_SCHEMA",
+        "url": "jdbc:sap://10.253.93.93:30041/?currentschema=AKB_SCHEMA",
+        "user": "SBSS_87991842335765509252893706776851486649232357138585910217981804637"
+       },
+       "instance_name": "akb_hdi",
+       "label": "hanatrial",
+       "name": "akb_hdi",
+       "plan": "hdi-shared",
+       "provider": null,
+       "syslog_drain_url": null,
+       "tags": [
+        "hana",
+        "database",
+        "relational"
+       ],
+       "volume_mounts": []
+      }
+     ],
+     "xsuaa": [
+      {
+       "binding_name": null,
+       "credentials": {
+        "apiurl": "https://api.authentication.eu10.hana.ondemand.com",
+        "clientid": "sb-SCP_HW3!t13616",
+        "clientsecret": "1DS/5xYW2/K5F4C8btSDdMiEeGw=",
+        "identityzone": "c5279484trial",
+        "identityzoneid": "9508c6fb-a25a-424f-979f-680b117cabe6",
+        "sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+        "tenantid": "9508c6fb-a25a-424f-979f-680b117cabe6",
+        "tenantmode": "dedicated",
+        "uaadomain": "authentication.eu10.hana.ondemand.com",
+        "url": "https://c5279484trial.authentication.eu10.hana.ondemand.com",
+        "verificationkey": "-----BEGIN PUBLIC KEY-----MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwThn6OO9kj0bchkOGkqYBnV1dQ3zU/xtj7Kj7nDd8nyRMcEWCtVzrzjzhiisRhlrzlRIEY82wRAZNGKMnw7cvCwNixcfcDJnjzgr2pJ+5/yDZUc0IXXyIWPZD+XdL+0EogC3d4+fqyvg/BF/F0t2hKHWr/UTXE6zrGhBKaL0d8rKfYd6olGWigFd+3+24CKI14zWVxUBtC+P9Fhngc9DRzkXqhxOK/EKn0HzSgotf5duq6Tmk9DCNM4sLW4+ERc6xzrgbeEexakabvax/Az9WZ4qhwgw+fwIhKIC7WLwCEJaRsW4m7NKkv+eJR2LKYesuQ9SVAJ3EXV86RwdnH4uAv7lQHsKURPVAQBlranSqyQu0EXs2N9OlWTxe+FyNkIvyZvoLrZl/CdlYc8AKxRm5rn2/88nkrYQ0XZSrnICM5FRWgVF2hn5KfZGwtBN85/D4Yck6B3ocMfyX7e4URUm9lRPQFUJGTXaZnEIge0R159HUwhTN1HvyXrs6uT1ZZmW+c3p47dw1+LmUf/hIf8zd+uvHQjIeHEJqxjqfyA8yqAFKRHKVFrwnwdMHIsRap2EKBhHMfeVf0P2th5C9MggYoGCvdIaIUgMBX3TtCdvGrcWML7hnyS2zkrlA8SoKJnRcRF2KxWKs355FhpHpzqyZflO5l98+O8wOsFjGpL9d0ECAwEAAQ==-----END PUBLIC KEY-----",
+        "xsappname": "SCP_HW3!t13616"
+       },
+       "instance_name": "akb_uaa",
+       "label": "xsuaa",
+       "name": "akb_uaa",
+       "plan": "application",
+       "provider": null,
+       "syslog_drain_url": null,
+       "tags": [
+        "xsuaa"
+       ],
+       "volume_mounts": []
+      }
+     ]
+    }
+   }
+   

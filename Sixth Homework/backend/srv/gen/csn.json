@@ -1,0 +1,25 @@
+{
+  "sources": {
+    "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\db\\Cinema.cds": "Using Movies from './Movies';\r\n\r\ntype ID : Integer;\r\n\r\nentity Cinema {\r\n   key cinemaID: ID not null;\r\n       cinemaName: String(40);\r\n       cinemaLocation : String(40);\r\n       cinemaInfo: String(40);\r\n       movieID: Integer;\r\n\r\n       ToMovie: Association to many Movies on ToMovie.movieID = movieID;\r\n}\r\n",
+    "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\db\\Movies.cds": "Using Cinema from './Cinema';\r\n\r\ntype Janre : String enum {\r\n    action_packed;\r\n    comedy;\r\n    melodrama;\r\n    fantastica;\r\n};\r\n\r\ntype start_end : {\r\n    start_time : String(20);\r\n    end_time: String(20);    \r\n};\r\n\r\n\r\nentity Movies{\r\n   key movieID: Integer not null;\r\n   movieName: String(20);\r\n   movieType: Janre;\r\n   movieTime: start_end;\r\n   cinemaID : Integer;\r\n\r\n   ToCinema: Association to many Cinema on ToCinema.cinemaID = cinemaID;\r\n\r\n\r\n}\r\n\r\n",
+    "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\srv\\CinemaService.cds": "using Cinema as _Cinema from '../db/Cinema';\r\nusing Movies as _Movies from '../db/Movies';\r\n\r\nservice odata {\r\n    entity Cinema @(\r\n        title: 'Cinema',\r\n\t\tCapabilities: {\r\n\t\t\tInsertRestrictions: {Insertable: false},\r\n\t\t\tUpdateRestrictions: {Updatable: false},\r\n\t\t\tDeleteRestrictions: {Deletable: false}\r\n\t\t}\r\n    ) as projection on _Cinema;\r\n\r\n   entity Movies @(\r\n    title: 'Movies',\r\n\t\tCapabilities: {\r\n\t\t\tInsertRestrictions: {Insertable: false},\r\n\t\t\tUpdateRestrictions: {Updatable: false},\r\n\t\t\tDeleteRestrictions: {Deletable: false}\r\n\t\t}  \r\n    ) as projection on _Movies; \r\n    \r\n\r\n}"
+  },
+  "dependencies": {
+    "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\db\\Cinema.cds": {
+      "./Movies": "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\db\\Movies.cds"
+    },
+    "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\db\\Movies.cds": {
+      "./Cinema": "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\db\\Cinema.cds"
+    },
+    "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\srv\\CinemaService.cds": {
+      "../db/Cinema": "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\db\\Cinema.cds",
+      "../db/Movies": "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\db\\Movies.cds"
+    }
+  },
+  "files": [
+    "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\db\\Cinema.cds",
+    "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\db\\Movies.cds",
+    "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\srv\\CinemaService.cds"
+  ],
+  "srv": "C:\\OSPanel\\domains\\SCP tutorials\\SCP_HW3\\backend\\srv"
+}

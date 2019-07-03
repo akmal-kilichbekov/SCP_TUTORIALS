@@ -1,0 +1,39 @@
+ID: akb_backend
+_schema-version: 3.1.0
+version: 1.0.0
+
+modules:
+    -
+        name: akb_db
+        type: hdb
+        path: db
+        provides:
+            - {name: akb_db, public: true}
+        parameters:
+            memory: 256M
+            disk-quota: 256M
+        requires:
+            - {name: akb_hdi}
+    -
+        name: akb_srv
+        type: nodejs
+        path: srv
+        properties:
+            XS_APP_LOG_akbEL: debug
+        parameters:
+            memory: 256M
+            disk-quota: 1024M
+        provides:
+            - {name: akb_srv, public: true, properties: {url: '${default-url}'}}
+        requires:
+            - {name: akb_db}
+            - {name: akb_hdi}
+            - {name: akb_uaa}
+
+resources:
+    -
+        name: akb_hdi
+        type: org.cloudfoundry.existing-service
+    -
+        name: akb_uaa
+        type: org.cloudfoundry.existing-service
