@@ -1,4 +1,4 @@
-﻿ID: lev_router
+﻿ID: akb_router
 _schema-version: 3.1.0
 version: 1.0.0
 
@@ -8,35 +8,35 @@ modules:
         type: nodejs
         path: ./
         properties:
-            XS_APP_LOG_LEVEL: debug
+            XS_APP_LOG_akbEL: debug
         build-parameters:
             ignore: [".git/", ".idea/", ".gitignore", ".gitlab-ci.yml", "mta.jar", "mta.yaml"]
         parameters:
             disk-quota: 256M
             memory: 128M
         requires:
-            - {name: lev_router}
-            - {name: lev_conn}
-            - {name: lev_dest}
-            - {name: lev_uaa}
-            - {name: lev_srv, group: destinations, properties: {name: lev_srv, url: '~{url}', forwardAuthToken: true}}
+            - {name: akb_router}
+            - {name: akb_conn}
+            - {name: akb_dest}
+            - {name: akb_uaa}
+            - {name: akb_srv, group: destinations, properties: {name: akb_srv, url: '~{url}', forwardAuthToken: true}}
 resources:
     -
-        name: lev_srv
+        name: akb_srv
         type: configuration
         parameters:
             provider-nid: mta
-            provider-id: 'lev_backend:lev_srv'
+            provider-id: 'akb_backend:akb_srv'
             version: '>=0.0.1'
     -
-        name: lev_dest
+        name: akb_dest
         type: org.cloudfoundry.existing-service
     -
-        name: lev_conn
+        name: akb_conn
         type: org.cloudfoundry.existing-service
     -
-        name: lev_uaa
+        name: akb_uaa
         type: org.cloudfoundry.existing-service
     -
-        name: lev_router
+        name: akb_router
         type: org.cloudfoundry.existing-service

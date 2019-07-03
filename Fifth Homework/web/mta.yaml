@@ -15,14 +15,14 @@ modules:
             - {name: akb_deployer}
         build-parameters:
             ignore: [".git/", ".idea/", ".gitignore", ".gitlab-ci.yml", "mta.jar", "mta.yaml"]
-            requires: [{name: user_create, artifacts: ['./*'], target-path: resources/user_create},{name: user_display, artifacts: ['./*'], target-path: resources/user_display}]
+            requires: [{name: cinema_create, artifacts: ['./*'], target-path: resources/cinema_create},{name: cinema_display, artifacts: ['./*'], target-path: resources/cinema_display}]
         parameters:
             disk-quota: 256M
             memory: 128M
     -
-        name: user_create
+        name: cinema_create
         type: html5
-        path: apps/user_create
+        path: apps/cinema_create
         build-parameters:
             ignore: [".git/", ".idea/", ".gitignore", ".gitlab-ci.yml", "mta.jar", "mta.yaml"]
             builder: grunt
@@ -32,9 +32,9 @@ modules:
         requires:
             - {name: akb_uaa}
     -
-        name: user_display
+        name: cinema_display
         type: html5
-        path: apps/user_display
+        path: apps/cinema_display
         build-parameters:
             ignore: [".git/", ".idea/", ".gitignore", ".gitlab-ci.yml", "mta.jar", "mta.yaml"]
             builder: grunt
